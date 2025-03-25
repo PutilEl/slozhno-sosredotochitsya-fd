@@ -1,6 +1,7 @@
 /*Мобильная версия*/
 .page {
   background-color: var(--bg-color, #000028);
+  background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -11,14 +12,10 @@
 }
 
 .header {
-  background-image: var(--bg-image);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-block-size: 100vh;
   display: grid;
-  position: relative;
   grid-template-rows: 1fr min-content 1fr;
+  position: relative;
+  min-block-size: 100vh;
   padding: 10px;
 }
 
@@ -42,7 +39,7 @@
 
 .header__theme-menu-button {
   padding-inline: 13px;
-  color: var(--decoration-color, #ff0070);
+  color: var(--nav-color, #ff0070);
   text-align: center;
   border: none;
   background: transparent;
@@ -50,12 +47,12 @@
 
 .header__theme-menu-button_active {
   pointer-events: none;
-  border: 1px solid var(--decoration-color, #ff0070);
+  border: 1px solid var(--nav-color, #ff0070);
 }
 
 .header__theme-menu-button:hover {
   cursor: pointer;
-  border: 1px solid var(--accent-color-opacity, #ff007066);
+  border: 1px solid var(--nav-hover-color, #ff007066);
 }
 
 .header__theme-menu-button:focus {
@@ -63,29 +60,27 @@
 }
 
 .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--decoration-color, #ff0070);
+  border-bottom: 1px solid var(--nav-color, #ff0070);
 }
 
 .decorated-zone::before {
   content: '';
-  margin: 10px;
   position: absolute;
-  justify-self: end;
-  align-self: flex-start;
+  place-self: flex-start end;
   inline-size: 25px;
   block-size: 25px;
+  margin: 10px;
   border-block-start: 1px solid var(--decoration-color, #ff0070);
   border-inline-end: 1px solid var(--decoration-color, #ff0070);
 }
 
 .decorated-zone::after {
   content: '';
-  margin: 10px;
   position: absolute;
-  justify-self: start;
-  align-self: flex-end;
+  place-self: flex-end start;
   inline-size: 25px;
   block-size: 25px;
+  margin: 10px;
   border-block-end: 1px solid var(--decoration-color, #ff0070);
   border-inline-start: 1px solid var(--decoration-color, #ff0070);
 }
@@ -94,8 +89,7 @@
   display: grid;
   grid-template-columns: repeat(2, auto);
   block-size: 25px;
-  justify-self: end;
-  align-self: flex-start;
+  place-self: flex-start end;
   position: absolute;
   margin: 10px;
   padding-inline-end: 9px;
@@ -104,12 +98,12 @@
 
 .header__decoration_dark::before {
   content: 'rec';
-  color: var(--accent-color, #ff0070);
-  text-transform: uppercase;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
   line-height: 25px;
+  text-transform: uppercase;
+  color: var(--decoration-color, #ff0070);
 }
 
 .header__decoration_dark::after {
@@ -118,15 +112,17 @@
   inline-size: 9px;
   block-size: 9px;
   border-radius: 50%;
-  background-color: var(--accent-color, #ff0070);
-  filter: drop-shadow(0px 0px 4px var(--accent-color, #ff0070));
+  background-color: var(--decoration-color, #ff0070);
+  filter: drop-shadow(0px 0px 4px var(--shadow-color, #ff0070));
 }
 
 .header_title {
-  margin-inline-start: -10px;
-  text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
-  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  color: var(--title-color, #db00ff);
+  display: flex;
+  place-self:  flex-start start;
+  font-family: inherit;
+  font-size: var(--header-logo-size);
+  color: var(--header-logo-color, #db00ff);
+  text-shadow: 4px 4px 0 var(--shadow-color, #ff0070);
   font-weight: 700;
   line-height: 82.5%;
 }
@@ -134,8 +130,7 @@
 .header__text {
   max-inline-size: 355px;
   max-block-size: 117px;
-  justify-self: end;
-  align-self: center;
+  place-self: center end;
 }
 
 .title-decor {
@@ -143,8 +138,8 @@
   font-size: inherit;
   font-weight: var(--bold-font-weight, 700);
   line-height: inherit;
-  background-color: var(--accent-color, #ff0070);
-  color: var(--bg-color, #000028);
+  background-color: var(--header-section-bg-color, #ff0070);
+  color: var(--header-section-subtitle-color, #000028);
 }
 
 .section {
@@ -171,7 +166,7 @@
   font-size: inherit;
   font-weight: var(--bold-font-weight, 700);
   line-height: inherit;
-  color: var(--decoration-color, #ff0070);
+  color: var(--header-section-text-color, #ff0070);
 }
 
 .section__article {
@@ -189,8 +184,8 @@
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
-  background-color: var(--accent-color, #ff0070);
-  color: var(--bg-color, #000028);
+  background-color: var(--header-section-bg-color, #ff0070);
+  color: var(--header-section-subtitle-color, #000028);
   margin-block-start: 10px;
 }
 
@@ -205,23 +200,20 @@
 .text-link {
   text-decoration: none;
   color: var(--text-color, #f1b2ce);
-  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+  text-shadow: 2px 2px 0 var(--shadow-color, #ff0070);
 }
 
 .text-link:hover {
-  text-decoration: underline;
-  text-underline-position: under;
-  text-decoration-color: var(--text-color, #f1b2ce);
-  color: var(--text-color, #f1b2ce);
-  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+  cursor: pointer;
+  border-bottom: 1px solid var(--text-color, #f1b2ce);
 }
 
 .text-link:focus {
-  text-decoration: underline;
-  text-underline-position: under;
-  text-decoration-color: var(--text-color, #f1b2ce);
-  color: var(--text-color, #f1b2ce);
-  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+  outline: none;
+}
+
+.text-link:focus-visible {
+  border-bottom: none;
   outline: 1px solid var(--text-color, #f1b2ce);
 }
 
@@ -254,42 +246,32 @@
 }
 
 .footer {
-  margin-block-start: 40px;
-  min-block-size: 100vh;
   display: grid;
-  padding: 10px;
   position: relative;
+  min-block-size: 100vh;
+  margin-block-start: 40px;
+  padding: 10px;
 }
 
 .footer__title {
   font-family: inherit;
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: var(--footer-logo-size);
   font-weight: var(--bold-font-weight, 700);
   line-height: 83%;
-  color: var(--title-color, #db00ff);
-  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
-  align-self: center;
-  justify-self: center;
+  place-self: center;
+  color: var(--footer-logo-color, #db00ff);
+  text-shadow: 2px 2px 0 var(--shadow-color, #ff0070);
 }
 
 /*Версия для ноутбука и планшета*/
 
 @media (width >= 768px) {
   .header {
-    padding: 20px;
+    padding: 20px 20px 20px 0;
   }
 
   .header__theme-menu {
-    display: flex;
-    justify-content: flex-end;
     margin-block-start: 170px;
-  }
-
-  .header__theme-menu-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 13px;
   }
 
   .header__title {
@@ -302,12 +284,10 @@
   }
 
   .decorated-zone::before {
-    content: '';
     margin: 20px;
   }
 
   .decorated-zone::after {
-    content: '';
     margin: 20px;
   }
 
@@ -318,7 +298,6 @@
   .section {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 20px;
     margin-inline: 20px;
   }
 
@@ -373,18 +352,6 @@
     gap: 20px; 
     margin-inline: 20px;
   }
-  
-  .gallery {
-    margin: 0;
-  }
-
-  .gallery_image {
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
 
   .gallery:nth-child(1) {
     grid-column: span 2;
@@ -421,10 +388,14 @@
 /*Версия для компьютера*/
 
 @media (width >= 1024px) {
+    .header {
+    padding: 20px 20px 20px 0;
+  }
+
   .header__theme-menu {
-    display: flex;
     justify-content: center;
     margin-block-start: 0;
+    margin-inline-start: 20px;
   }
   
   .header__theme-menu-list {
@@ -434,6 +405,10 @@
     gap: 13px;
   }
 
+  .header_title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
   .header__text {
     max-inline-size: 491px;
     max-block-size: 71px;
@@ -441,7 +416,6 @@
 
   .section {
     display: grid;
-    gap: 20px;
     margin: 0 20px;
   }
 
@@ -460,6 +434,7 @@
 
   .section:nth-of-type(2) {
     grid-template-columns: repeat(auto-fit, minmax(314px, 1fr));
+    grid-auto-flow: row;
     margin-block-start: 80px;
   }
 
@@ -470,7 +445,6 @@
   .section__article_two {
     display: flex;
     flex-direction: column;
-    gap: 10px;
   }
   
   .section__article_two:nth-of-type(1) {
