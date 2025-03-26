@@ -230,15 +230,13 @@
   outline: 1px solid var(--text-color, #f1b2ce);
 }
 
-.section__pictures {
+.section__pictures_title {
   font-family: inherit;
   font-size: inherit;
   font-weight: var(--bold-font-weight, 700);
   line-height: inherit;
+  background-color: var(--header-section-bg-color, #ff0070);
   color: var(--header-section-subtitle-color, #000028);
-}
-
-.section__pictures_title {
   margin-block-end: 10px;
 }
 
