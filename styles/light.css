@@ -11,6 +11,7 @@
   --footer-logo-color: #ffc2e6;
   --text-color: #353430;
   --header-section-text-color: #353430;
+  --header-section-subtitle-color: #353430;
   --header-section-bg-color: #ff8dcb;
   --nav-color: #353430;
   --nav-hover-color: #32312d66;
@@ -35,7 +36,7 @@
     --nav-color: #353430;
     --nav-hover-color: #32312d66;
     --decoration-color: #353430;
-    --shadow-color:  #ff8dcb;   
+    --shadow-color:  #ff8dcb;  
   }
 
   .header__decoration_dark {
